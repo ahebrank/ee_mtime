@@ -35,16 +35,22 @@ class ee_mtime {
 
     // use truncacted hash? default to yes
     $path = ee()->TMPL->fetch_param('path', null);
-    if (is_null($path)) return "0";
+    if (is_null($path)) {
+      $this->return_data = "0";
+      return;
+    }
 
     if (strpos($path, "/")!==0) {
       // relative path
       $path = $_SERVER['DOCUMENT_ROOT'] . '/' . $path;
     }
 
-    if (!file_exists($path)) return "0";
+    if (!file_exists($path)) {
+      $this->return_data = "0";
+      return;
+    }
 
-    return filemtime($path);
+    $this->return_data = filemtime($path);
   }
 
     
