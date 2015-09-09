@@ -36,7 +36,7 @@ class ee_mtime {
     // use truncacted hash? default to yes
     $path = ee()->TMPL->fetch_param('path', null);
     if (is_null($path)) {
-      $this->return_data = "0";
+      $this->return_data = "nopath";
       return;
     }
 
@@ -46,7 +46,7 @@ class ee_mtime {
     }
 
     if (!file_exists($path)) {
-      $this->return_data = "0";
+      $this->return_data = "notfound";
       return;
     }
 
