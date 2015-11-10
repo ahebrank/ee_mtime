@@ -60,7 +60,7 @@ class ee_mtime {
 
 // This function describes how the plugin is used.
 
-  public function usage() {
+  public static function usage() {
     ob_start(); ?>
 Get the mtime of a file. File may be specified as absolute or relative to webroot. Returns 0 if something goes wrong.
   {exp:ee_mtime path="css/styles.css"}
